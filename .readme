@@ -1,0 +1,37 @@
+# Three.js Journey 🚀
+
+This repository contains my learning progress, experiments, and mini-projects while following the **Three.js Journey** course by **Bruno Simon**.
+
+The goal of this repo is to build a strong foundation in **Three.js**, **WebGL concepts**, and **modern 3D for the web**, through hands-on practice.
+
+---
+
+## 📚 About the Course
+
+**Three.js Journey** is a comprehensive course that covers:
+- Three.js fundamentals
+- WebGL basics
+- Cameras, lights, materials
+- Textures & environment maps
+- Animations
+- Shaders
+- Performance optimization
+- Real-world 3D scenes
+
+Course by: **Bruno Simon**  
+👉 https://threejs-journey.com/
+
+---
+
+## 🛠️ Tech Stack
+
+- **Three.js**
+- **JavaScript (ES6+)**
+- **Vite**
+- **WebGL**
+- **HTML / CSS**
+
+---
+
+## 📂 Project Structure
+
