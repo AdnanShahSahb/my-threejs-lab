@@ -6,6 +6,7 @@ uniform float uColorMultiplier;
 varying float vElevation;
 
 #include "../includes/pointLight.glsl"
+#include "../includes/ambLight.glsl"
 
 varying vec3 vNormal;
 varying vec3 vPosition;
@@ -24,6 +25,7 @@ void main(){
     vec3 viewDirection=normalize(vPosition-cameraPosition);
 
     vec3 light=vec3(0.0);
+
     light+=pointLight(
         vec3(1.0),
         1.0,
@@ -34,6 +36,33 @@ void main(){
         vPosition,
         0.95
     );
+
+
+    light+=pointLight(
+        vec3(1.0),
+        1.0,
+        normal,
+        vec3(1.0,0.25,0.0),
+        viewDirection,
+        30.0,
+        vPosition,
+        0.95
+    );
+    light+=pointLight(
+        vec3(1.0),
+        1.0,
+        normal,
+        vec3(-1.0,0.25,0.0),
+        viewDirection,
+        30.0,
+        vPosition,
+        0.95
+    );
+
+    // light+=ambientLight(
+    //     vec3(1.0),
+    //     0.3
+    // );
 
     color*=light;
 

@@ -112,7 +112,8 @@ const ambientLight = new THREE.AmbientLight()
 scene.add(ambientLight)
 
 const camera = new THREE.PerspectiveCamera(75, size.width / size.height, 0.1, 100)
-camera.position.z = 6;
+camera.position.z = 3;
+camera.position.y = 4;
 scene.add(camera)
 
 const renderer = new THREE.WebGLRenderer({ canvas })

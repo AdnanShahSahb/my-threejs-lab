@@ -1,6 +1,9 @@
 import * as THREE from "three"
 import { OrbitControls } from "three/examples/jsm/Addons.js"
 
+let animationId = null;
+
+
 const canvas = document.querySelector('canvas.webgl')
 
 const scene = new THREE.Scene()
@@ -114,7 +117,7 @@ const clock = new THREE.Clock()
 
 const animate = () => {
     const elapsedTime = clock.getElapsedTime();
-    console.info(elapsedTime);
+    // console.info(elapsedTime);
     mesh.position.x = Math.cos(elapsedTime * 3) * 1.5;
     mesh.position.z = Math.sin(elapsedTime * 3) * 1.5;
     mesh.position.y = Math.abs(Math.sin(elapsedTime * 3))
@@ -126,6 +129,6 @@ const animate = () => {
     controls.update()
 
     renderer.render(scene, camera)
-    requestAnimationFrame(animate)
+    animationId = requestAnimationFrame(animate)
 }
 animate();

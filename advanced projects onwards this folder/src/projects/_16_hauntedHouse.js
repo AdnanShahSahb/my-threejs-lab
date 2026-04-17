@@ -4,6 +4,9 @@ import { Timer } from 'three/addons/misc/Timer.js'
 import GUI from "lil-gui"
 import { Sky } from "three/examples/jsm/Addons.js"
 
+let animationId = null;
+
+
 const gui = new GUI()
 
 const canvas = document.querySelector('canvas.webgl')
@@ -430,6 +433,6 @@ const anim = () => {
 
     controls.update()
     renderer.render(scene, camera)
-    requestAnimationFrame(anim)
+    animationId = requestAnimationFrame(anim)
 }
 anim();

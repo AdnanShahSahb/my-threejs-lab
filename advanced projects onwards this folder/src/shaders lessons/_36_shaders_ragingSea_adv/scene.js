@@ -49,7 +49,7 @@ debugObj.depthColor = '#186691'
 debugObj.surfaceColor = '#9bd8ff'
 
 const mesh = new THREE.Mesh(
-    new THREE.PlaneGeometry(2, 2, 512, 512),
+    new THREE.PlaneGeometry(4, 2, 512, 512),
 
     new THREE.ShaderMaterial({
         vertexShader: testVertexShader,
@@ -134,7 +134,7 @@ window.addEventListener('resize', () => {
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(0, 0, 4)
+camera.position.set(0, 1, 1.3)
 scene.add(camera)
 
 // Controls
