@@ -68,7 +68,7 @@ section:nth-child(odd) {
 
 
 .intro {
-  margin-top:50px;
+  /* margin-top:50px; */
 
   transform: translateX(-110%);
   /* hidden */

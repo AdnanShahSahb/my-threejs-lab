@@ -10,7 +10,7 @@
 
 <body>
     <canvas class="webgl"></canvas>
-    <a class="btn-back" href="?">Other Projs</a>
+    <a id="otherProjBtn" class="btn-back" href="?">Other Projs</a>
 
     <section class="sec">
         <h1>My Porftolio</h1>
@@ -21,16 +21,39 @@
     <section class="sec">
         <h1>Contact Me</h1>
     </section>
-    
 
-    
 
-    <div class="intro" id="intro" style="color: wheat; padding: 20px;" id="intro">
-        <h1>WebGL Work</h1>
+
+
+    <div class="intro" id="intro" style="color: wheat; padding: 20px;">
+        <h1>THREE.JS Practice</h1>
+
         <p>
-            This is my implementation of Bruno Simon’s Three.js Journey.
-            A lab where I break, rebuild, and understand everything from particles to shaders.
+            This is my implementation of Three.js Journey.
+            A lab where I break, rebuild, and truly understand everything
+            from particles to shaders, inspired by Bruno Simon’s course.
         </p>
+
+        <div style="margin-top: 15px; display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href="https://linkedin.com/in/aadnanshahh2001" target="_blank"
+                style="color: #0A66C2; text-decoration: none;">
+                LinkedIn
+            </a>
+
+            <a href="https://github.com/AdnanShahSahb" target="_blank" style="color: #ffffff; text-decoration: none;">
+                GitHub
+            </a>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aadnanshahh2001@gmail.com"
+                style="color: #EA4335; text-decoration: none;">
+                Gmail
+            </a>
+            
+            <a href="https://adnanshah-codegallery.web.app/"
+                style="color: #F59E0B; text-decoration: none;">
+                Portfolio-Website
+            </a>
+        </div>
     </div>
     <div class="controls" id="controls">
         <div class="grid">
@@ -56,11 +79,24 @@
 
             <a href="?proj=shaders_ragingSea_adv" class="card">
                 <img src="projPictures/ragingSeaAdv.webp" />
+                 <!-- RED LABEL -->
+                <span
+                    style="height: 13px;position: absolute;top: 10px;left: 10px;background: #ff3b3b;color: white;font-size: 12px;padding: 4px 8px;border-radius: 6px;font-weight: bold;letter-spacing: 0.5px; ">
+                    NEW
+                </span>
                 <span>Raging Sea Advanced</span>
             </a>
 
-            <a href="?proj=particles_cursor_animation" class="card">
+            <a href="?proj=particles_cursor_animation" class="card" style="position: relative; display: inline-block;">
+
                 <img src="projPictures/cursorParticles.webp" />
+
+                <!-- RED LABEL -->
+                <span
+                    style="height: 13px;position: absolute;top: 10px;left: 10px;background: #ff3b3b;color: white;font-size: 12px;padding: 4px 8px;border-radius: 6px;font-weight: bold;letter-spacing: 0.5px; ">
+                    NEW
+                </span>
+
                 <span>Cursor Particles</span>
             </a>
 
@@ -88,7 +124,7 @@
                 <img src="projPictures/galaxy.webp" />
                 <span>Galaxy Generator</span>
             </a>
-            
+
             <a href="?proj=scrollbasedProj" class="card">
                 <img src="projPictures/scrollbased.webp" />
                 <span>Scroll Based Animation</span>
@@ -117,7 +153,7 @@
 
         </div>
     </div>
-    
+
 
     <script type="module" src="./main.js"></script>
 

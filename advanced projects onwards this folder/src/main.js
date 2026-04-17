@@ -16,8 +16,8 @@ const scripts = {
         document.getElementsByClassName('sec')[1].style.display = 'flex'
         document.getElementsByClassName('sec')[2].style.display = 'flex'
 
-        controls.style.display='none'
-        intro.style.display='none'
+        controls.style.display = 'none'
+        intro.style.display = 'none'
     },
     physics: () => import('./projects/_20_physics.js'),
     RaycasterandMouseEvents: () => import('./projects/_22_RaycasterandMouseEvents.js'),
@@ -41,6 +41,8 @@ if (proj && scripts[proj]) {
 
     scripts[proj]()
 
+
+
 } else {
     // show panel when no project
     controls.classList.add('visible')
@@ -50,5 +52,7 @@ if (proj && scripts[proj]) {
     document.getElementsByClassName('sec')[0].style.display = 'none'
     document.getElementsByClassName('sec')[1].style.display = 'none'
     document.getElementsByClassName('sec')[2].style.display = 'none'
+
+    document.getElementById('otherProjBtn').style.display='none'
 
 }
