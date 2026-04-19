@@ -29,6 +29,7 @@ const scripts = {
     shaders_ragingSea: () => import('./shaders lessons/_29_shaders_ragingSea/scene.js'),
     shaders_ragingSea_adv: () => import('./shaders lessons/_36_shaders_ragingSea_adv/scene.js'),
     particles_cursor_animation: () => import('./shaders lessons/_39_particles_cursor_animation/src/script.js'),
+    particles_morphing: () => import('./shaders lessons/_40_particles_morphing/script.js'),
 
 };
 
