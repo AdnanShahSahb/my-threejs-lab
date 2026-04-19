@@ -84,7 +84,9 @@ renderer.setClearColor(debugObject.clearColor)
 
 let particles = null;
 
+
 gltfLoader.load('./shaders_40/static/models.glb', (gltf) => {
+
 
 
     /**
@@ -125,24 +127,35 @@ gltfLoader.load('./shaders_40/static/models.glb', (gltf) => {
         particles.positions.push(new THREE.Float32BufferAttribute(newArr, 3))
     }
 
-    console.info(particles.positions);
+    // console.info(particles.positions);
 
 
     // Geometry
+    const sizesArray = new Float32Array(particles.maxCount)
+    for (let i = 0; i < particles.maxCount; i++) {
+        sizesArray[i] = Math.random()
+    }
+
     particles.geometry = new THREE.BufferGeometry()
     particles.geometry.setAttribute('position', particles.positions[particles.index])
-    particles.geometry.setAttribute('positionTarget', particles.positions[3])
+    particles.geometry.setAttribute('aPositionTarget', particles.positions[3])
+    particles.geometry.setAttribute('aSize', new THREE.BufferAttribute(sizesArray, 1))
     particles.geometry.setIndex(null)
 
     // Material
+    particles.colorA = "#989843"
+    particles.colorB = "#328732"
+
     particles.material = new THREE.ShaderMaterial({
         vertexShader: particlesVertexShader,
         fragmentShader: particlesFragmentShader,
         uniforms:
         {
-            uSize: new THREE.Uniform(0.1),
+            uSize: new THREE.Uniform(0.4),
             uResolution: new THREE.Uniform(new THREE.Vector2(sizes.width * sizes.pixelRatio, sizes.height * sizes.pixelRatio)),
-            uProgress: new THREE.Uniform(0.0)
+            uProgress: new THREE.Uniform(0.0),
+            uColorA: new THREE.Uniform(new THREE.Color(particles.colorA)),
+            uColorB: new THREE.Uniform(new THREE.Color(particles.colorB))
         },
         blending: THREE.AdditiveBlending,
         depthWrite: false
@@ -154,7 +167,7 @@ gltfLoader.load('./shaders_40/static/models.glb', (gltf) => {
 
     particles.morph = (index) => {
         particles.geometry.attributes.position = particles.positions[particles.index];
-        particles.geometry.attributes.positionTarget = particles.positions[index];
+        particles.geometry.attributes.aPositionTarget = particles.positions[index];
 
         gsap.fromTo(
             particles.material.uniforms.uProgress,
@@ -169,6 +182,15 @@ gltfLoader.load('./shaders_40/static/models.glb', (gltf) => {
     particles.morph1 = () => { particles.morph(1) }
     particles.morph2 = () => { particles.morph(2) }
     particles.morph3 = () => { particles.morph(3) }
+
+    gui.addColor(particles, 'colorA')
+        .onChange(() => {
+            particles.material.uniforms.uColorA.value.set(particles.colorA)
+        })
+    gui.addColor(particles, 'colorB')
+        .onChange(() => {
+            particles.material.uniforms.uColorB.value.set(particles.colorB)
+        })
 
     // TWEAKS
     gui.add(particles.material.uniforms.uProgress, 'value').min(0).max(1).name('uProgress').listen()

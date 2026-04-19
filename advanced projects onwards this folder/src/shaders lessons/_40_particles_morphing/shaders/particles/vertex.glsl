@@ -1,9 +1,13 @@
 uniform vec2 uResolution;
 uniform float uSize;
 
-attribute vec3 positionTarget;
+attribute vec3 aPositionTarget;
+attribute float aSize;
 
 uniform float uProgress;
+
+uniform vec3 uColorA;
+uniform vec3 uColorB;
 
 #include ../includes/noise.glsl;
 
@@ -13,7 +17,7 @@ void main()
 {
 
     float noiseOrig=simplexNoise3d(position*0.1);
-    float noiseTarget=simplexNoise3d(positionTarget*0.1);
+    float noiseTarget=simplexNoise3d(aPositionTarget*0.1);
     float noise=mix(noiseOrig,noiseTarget,uProgress);
     noise=smoothstep(-1.0,1.0,noise);
 
@@ -23,7 +27,7 @@ void main()
     float progress=smoothstep(delay,end,uProgress);
 
     // float progress=uProgress;
-    vec3 mixedPos=mix(position,positionTarget,progress);
+    vec3 mixedPos=mix(position,aPositionTarget,progress);
 
     // Final position
     vec4 modelPosition = modelMatrix * vec4(mixedPos, 1.0);
@@ -32,8 +36,8 @@ void main()
     gl_Position = projectedPosition;
 
     // Point size
-    gl_PointSize = uSize * uResolution.y;
+    gl_PointSize =aSize* uSize * uResolution.y;
     gl_PointSize *= (1.0 / - viewPosition.z);
 
-    vColor=vec3(noise);
+    vColor=mix(uColorA,uColorB,noise);
 }
