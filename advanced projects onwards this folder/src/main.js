@@ -30,7 +30,7 @@ const scripts = {
     shaders_ragingSea_adv: () => import('./shaders lessons/_36_shaders_ragingSea_adv/scene.js'),
     particles_cursor_animation: () => import('./shaders lessons/_39_particles_cursor_animation/src/script.js'),
     particles_morphing: () => import('./shaders lessons/_40_particles_morphing/script.js'),
-
+    gpgpu_flowfieldparticles_shaders: () => import('./shaders lessons/_41_gpgpu_flowfieldparticles_shaders/script.js'),
 };
 
 
@@ -54,6 +54,6 @@ if (proj && scripts[proj]) {
     document.getElementsByClassName('sec')[1].style.display = 'none'
     document.getElementsByClassName('sec')[2].style.display = 'none'
 
-    document.getElementById('otherProjBtn').style.display='none'
+    document.getElementById('otherProjBtn').style.display = 'none'
 
 }
